@@ -426,6 +426,8 @@ class MessageSender {
             }
         };
 
+        headers['x-postal-tag'] = 'mailtrain';
+
         const mail = {
             from: {
                 name: getOverridable('from_name'),
