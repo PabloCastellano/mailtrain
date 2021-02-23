@@ -1091,9 +1091,11 @@
   "missingEmail": "Missing email",
   "emailAddressAlreadyRegistered": "Email address already registered",
   "weHaveReceivedASubscriptionRequestYour": "We have received a subscription request. Your email address is however already registered.",
-  "mistakeEmailDelete1": "mistakeEmailDelete1",
+  "ifYouReceivedThisEmailByMistakeSimply": "If you received this email by mistake, simply delete it. Your existing subscription won't be affected.",
   "ifYouWantToModifyYourSubscriptionThenYou": "If you want to modify your subscription then you can",
   "manageYourPreferences": "manage your preferences",
+  "or": "or",
+  "unsubscribeHere": "unsubscribe here",
   "returnToOurWebsite": "Return to our website",
   "forQuestionsAboutThisListPleaseContact": "For questions about this list, please contact:",
   "emailAddress-2": "Email Address",
@@ -1115,8 +1117,5 @@
   "thePasswordMustContainAtLeastOne": "The password must contain at least one lowercase letter",
   "thePasswordMustContainAtLeastOne-1": "The password must contain at least one uppercase letter",
   "thePasswordMustContainAtLeastOneNumber": "The password must contain at least one number",
-  "thePasswordMustContainAtLeastOneSpecial": "The password must contain at least one special character",
-  "or": "or",
-  "unsubscribeHere": "unsubscribe here",
-
+  "thePasswordMustContainAtLeastOneSpecial": "The password must contain at least one special character"
 }
