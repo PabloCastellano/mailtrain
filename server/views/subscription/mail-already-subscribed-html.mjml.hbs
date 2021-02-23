@@ -1,17 +1,17 @@
 <mj-section>
     <mj-column>
         <mj-text mj-class="h3">
-            Email address already registered
+            {{#translate}}emailAlreadyRegistered{{/translate}}
         </mj-text>
         <mj-text mj-class="p">
-            We have received a subscription request. Your email address is however already registered..
+            {{#translate}}emailAlreadyRegistered-1{{/translate}}
         </mj-text>
         <mj-text mj-class="p">
-            If you received this email by mistake, simply delete it. Your existing subscription won't be affected.
+            {{#translate}}mistakeEmailDelete1{{/translate}}
         </mj-text>
         <mj-text mj-class="p">
-            If you want to modify your subscription then you can
-            <a href="{{preferencesUrl}}">manage your preferences</a> or <a href="{{unsubscribeUrl}}">unsubscribe here</a>.
+            {{#translate}}ifModifySubscription{{/translate}}
+            <a href="{{preferencesUrl}}">{{#translate}}manageYourPreferences{{/translate}}</a> or <a href="{{unsubscribeUrl}}">unsubscribe here</a>.
         </mj-text>
         <mj-button mj-class="button" href="{{homepage}}">
             {{#translate}}returnToOutWebsite{{/translate}}
