@@ -1095,6 +1095,7 @@
   "ifYouWantToModifyYourSubscriptionThenYou": "If you want to modify your subscription then you can",
   "manageYourPreferences": "manage your preferences",
   "returnToOurWebsite": "Return to our website",
+  "forQuestionsAboutThisListPleaseContact": "For questions about this list, please contact:",
   "emailAddress-2": "Email Address",
   "wantToChangeIt?": "want to change it?",
   "downloadSignatureVerificationKey": "Download signature verification key",
@@ -1114,6 +1115,5 @@
   "thePasswordMustContainAtLeastOne": "The password must contain at least one lowercase letter",
   "thePasswordMustContainAtLeastOne-1": "The password must contain at least one uppercase letter",
   "thePasswordMustContainAtLeastOneNumber": "The password must contain at least one number",
-  "thePasswordMustContainAtLeastOneSpecial": "The password must contain at least one special character",
-  "forQuestionsAboutThisList": "For questions about this list, please contact:"
+  "thePasswordMustContainAtLeastOneSpecial": "The password must contain at least one special character"
 }
