@@ -19,7 +19,19 @@
 
 <script>
     document.getElementById('sub').value = new Date().getTime();
+    document.getElementById('tz').value = window.moment.tz.guess() || '';
 </script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.12.0/moment.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.3/moment-timezone-with-data.min.js"></script>
+
+<!--
+var tz = moment.tz.guess();
+if (tz) {
+    $('.tz-detect').val(tz);
+}
+
+
+server/views/subscription/partials/subscription-footer-scripts.hbs
+
+-->
