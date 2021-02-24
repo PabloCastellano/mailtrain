@@ -716,7 +716,7 @@
   "rules": "Reglas",
   "fieldMustBeSelected": "El campo debe ser seleccionado",
   "field": "Campo",
-  "select-1": "-- Select --",
+  "select-1": "-- Seleccionar --",
   "ruleOptions": "Rule Options",
   "ok": "OK",
   "allRulesMustMatch": "Deben cumplirse todas las reglas",
