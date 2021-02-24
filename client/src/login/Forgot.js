@@ -46,7 +46,7 @@ export default class Forget extends Component {
         const t = this.props.t;
 
         this.disableForm();
-        this.setFormStatusMessage('info', t('processing-1'));
+        this.setFormStatusMessage('info', t('processing'));
 
         const submitSuccessful = await this.validateAndSendFormValuesToURL(FormSendMethod.POST, 'rest/password-reset-send');
 
