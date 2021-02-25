@@ -10,6 +10,7 @@ const {getFieldColumn, toNameTagLangauge} = require('../../shared/lists');
 const forms = require('../models/forms');
 const messageSender = require('./message-sender');
 const tools = require('./tools');
+const { telegramBot, chatId } = require('./telegram');
 
 module.exports = {
     sendAlreadySubscribed,
@@ -27,6 +28,10 @@ async function sendSubscriptionConfirmed(locale, list, email, subscription) {
     };
 
     await _sendMail(list, email, 'subscription_confirmed', locale, tMark('subscriptionConfirmed'), relativeUrls, subscription);
+
+    if (chatId) {
+        telegramBot.sendMessage(chatId, '['+getTrustedUrl()+'] '+email+' ha confirmado suscripción a '+list.name+' 🥳');
+    }
 }
 
 async function sendAlreadySubscribed(locale, list, email, subscription) {
@@ -49,6 +54,9 @@ async function sendConfirmSubscription(locale, list, email, cid, subscription) {
         confirmUrl: '/subscription/confirm/subscribe/' + cid
     };
     await _sendMail(list, email, 'confirm_subscription', locale, tMark('pleaseConfirmSubscription'), relativeUrls, subscription);
+    if (chatId) {
+        telegramBot.sendMessage(chatId, '['+getTrustedUrl()+'] '+email+' va a suscribirse a '+list.name+' 👀');
+    }
 }
 
 async function sendConfirmUnsubscription(locale, list, email, cid, subscription) {
@@ -56,6 +64,10 @@ async function sendConfirmUnsubscription(locale, list, email, cid, subscription)
         confirmUrl: '/subscription/confirm/unsubscribe/' + cid
     };
     await _sendMail(list, email, 'confirm_unsubscription', locale, tMark('listPleaseConfirmUnsubscription'), relativeUrls, subscription);
+
+    if (chatId) {
+        telegramBot.sendMessage(chatId, '['+getTrustedUrl()+'] '+email+' va a desuscribirse de '+list.name+' 👀');
+    }
 }
 
 async function sendUnsubscriptionConfirmed(locale, list, email, subscription) {
@@ -63,6 +75,10 @@ async function sendUnsubscriptionConfirmed(locale, list, email, subscription) {
         subscribeUrl: '/subscription/' + list.cid + '?cid=' + subscription.cid
     };
     await _sendMail(list, email, 'unsubscription_confirmed', locale, tMark('listUnsubscriptionConfirmed'), relativeUrls, subscription);
+
+    if (chatId) {
+        telegramBot.sendMessage(chatId, '['+getTrustedUrl()+'] '+email+' se ha desuscrito de '+list.name+' 😢');
+    }
 }
 
 async function _sendMail(list, email, template, locale, subjectKey, relativeUrls, subscription) {

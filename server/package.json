@@ -95,6 +95,7 @@
     "node-ipc": "^9.1.1",
     "node-mocks-http": "^1.8.1",
     "node-object-hash": "^1.4.1",
+    "node-telegram-bot-api": "^0.51.0",
     "nodeify": "^1.0.1",
     "nodemailer": "^5.0.0",
     "nodemailer-openpgp": "^1.2.0",

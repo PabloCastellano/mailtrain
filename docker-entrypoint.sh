@@ -36,6 +36,8 @@ MYSQL_PASSWORD=${MYSQL_PASSWORD:-'mailtrain'}
 WITH_ZONE_MTA=${WITH_ZONE_MTA:-'true'}
 POOL_NAME=${POOL_NAME:-$(hostname)}
 LOG_LEVEL=${LOG_LEVEL:-'info'}
+TELEGRAM_CHATID=${TELEGRAM_CHATID:-''}
+TELEGRAM_TOKEN=${TELEGRAM_TOKEN:-''}
 
 # Warning for users that already rely on the MAILTRAIN_SETTING variable
 # Can probably be removed in the future.
@@ -72,6 +74,10 @@ mysql:
 redis:
   enabled: $WITH_REDIS
   host: $REDIS_HOST
+
+telegram:
+  chatId: $TELEGRAM_CHATID
+  token: $TELEGRAM_TOKEN
 
 builtinZoneMTA:
   enabled: $WITH_ZONE_MTA

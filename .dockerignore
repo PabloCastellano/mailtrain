@@ -2,6 +2,7 @@ node_modules/
 docs/
 Dockerfile
 *.md
+.env
 .git
 .gitignore
 .gitmodules
