@@ -1204,7 +1204,7 @@
   "subscribeToList": "Subscribirme a la lista",
   "almostFinished": "Ya casi hemos acabado",
   "weNeedToConfirmYourEmailAddressTo": "Necesitamos confirmar tu dirección de correo electrónico. Para completar el proceso de suscripción, por favor sigue el enlace que encontrarás en el email que te acabamos de enviar.",
-  "pleaseReviewYourSpamFolder": "Por favor, revisa tu carpeta de spam.",
+  "ifYouDontReceiveItPleaseCheckYourSpam": "Si no lo has recibido, por favor comprueba en tu carpeta de spam.",
   "thankYouForSubscribing!": "¡Gracias por suscribirte!",
   "unsubscriptionConfirmed": "Desuscripción confirmada",
   "youHaveBeenRemovedFrom": "Te has desuscrito de",
