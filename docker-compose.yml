@@ -18,17 +18,21 @@ services:
 
   mongo:
     image: mongo:4-xenial
+    restart: on-failure
     volumes:
     - mongo-data:/data/db
 
   mailtrain:
     image: mailtrain/mailtrain:latest
+    build: .
     ports:
     - "3000:3000"
     - "3003:3003"
     - "3004:3004"
     volumes:
     - mailtrain-files:/app/server/files
+    env_file:
+    - ".env"
 
 volumes:
   mysql-data:
