@@ -30,7 +30,7 @@ async function sendSubscriptionConfirmed(locale, list, email, subscription) {
     await _sendMail(list, email, 'subscription_confirmed', locale, tMark('subscriptionConfirmed'), relativeUrls, subscription);
 
     if (chatId) {
-        telegramBot.sendMessage(chatId, '['+getTrustedUrl()+'] '+email+' ha confirmado suscripción a '+list.name+' 🥳');
+        telegramBot.sendMessage(chatId, '['+list.name+'] '+email+' ha confirmado su suscripción 🥳');
     }
 }
 
@@ -40,6 +40,10 @@ async function sendAlreadySubscribed(locale, list, email, subscription) {
         unsubscribeUrl: '/subscription/' + list.cid + '/unsubscribe/' + subscription.cid
     };
     await _sendMail(list, email, 'already_subscribed', locale, tMark('listEmailAddressAlreadyRegistered'), relativeUrls, subscription);
+
+    if (chatId) {
+        telegramBot.sendMessage(chatId, '['+list.name+'] '+email+' ya está suscrito');
+    }
 }
 
 async function sendConfirmAddressChange(locale, list, email, cid, subscription) {
@@ -47,6 +51,10 @@ async function sendConfirmAddressChange(locale, list, email, cid, subscription) 
         confirmUrl: '/subscription/confirm/change-address/' + cid
     };
     await _sendMail(list, email, 'confirm_address_change', locale, tMark('listPleaseConfirmEmailChangeIn'), relativeUrls, subscription);
+
+    if (chatId) {
+        telegramBot.sendMessage(chatId, '['+list.name+'] '+email+' cambia de email');
+    }
 }
 
 async function sendConfirmSubscription(locale, list, email, cid, subscription) {
@@ -55,7 +63,7 @@ async function sendConfirmSubscription(locale, list, email, cid, subscription) {
     };
     await _sendMail(list, email, 'confirm_subscription', locale, tMark('pleaseConfirmSubscription'), relativeUrls, subscription);
     if (chatId) {
-        telegramBot.sendMessage(chatId, '['+getTrustedUrl()+'] '+email+' va a suscribirse a '+list.name+' 👀');
+        telegramBot.sendMessage(chatId, '['+list.name+'] '+email+' va a suscribirse 👀');
     }
 }
 
@@ -66,7 +74,7 @@ async function sendConfirmUnsubscription(locale, list, email, cid, subscription)
     await _sendMail(list, email, 'confirm_unsubscription', locale, tMark('listPleaseConfirmUnsubscription'), relativeUrls, subscription);
 
     if (chatId) {
-        telegramBot.sendMessage(chatId, '['+getTrustedUrl()+'] '+email+' va a desuscribirse de '+list.name+' 👀');
+        telegramBot.sendMessage(chatId, '['+list.name+'] '+email+' va a desuscribirse 👀');
     }
 }
 
@@ -77,7 +85,7 @@ async function sendUnsubscriptionConfirmed(locale, list, email, subscription) {
     await _sendMail(list, email, 'unsubscription_confirmed', locale, tMark('listUnsubscriptionConfirmed'), relativeUrls, subscription);
 
     if (chatId) {
-        telegramBot.sendMessage(chatId, '['+getTrustedUrl()+'] '+email+' se ha desuscrito de '+list.name+' 😢');
+        telegramBot.sendMessage(chatId, '['+list.name+'] '+email+' se ha desuscrito 😢');
     }
 }
 
