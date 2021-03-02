@@ -21,6 +21,12 @@ module.exports = {
     sendUnsubscriptionConfirmed
 };
 
+function redact(email) {
+    const emailParts = email.split('@');
+    emailParts[0] = emailParts[0].replace(/./g, "x");
+    return emailParts.join('@');
+}
+
 async function sendSubscriptionConfirmed(locale, list, email, subscription) {
     const relativeUrls = {
         preferencesUrl: '/subscription/' + list.cid + '/manage/' + subscription.cid,
@@ -30,7 +36,7 @@ async function sendSubscriptionConfirmed(locale, list, email, subscription) {
     await _sendMail(list, email, 'subscription_confirmed', locale, tMark('subscriptionConfirmed'), relativeUrls, subscription);
 
     if (chatId) {
-        telegramBot.sendMessage(chatId, '['+list.name+'] '+email+' ha confirmado su suscripción 🥳');
+        telegramBot.sendMessage(chatId, '['+list.name+'] '+redact(email)+' ha confirmado su suscripción 🥳');
     }
 }
 
@@ -42,7 +48,7 @@ async function sendAlreadySubscribed(locale, list, email, subscription) {
     await _sendMail(list, email, 'already_subscribed', locale, tMark('listEmailAddressAlreadyRegistered'), relativeUrls, subscription);
 
     if (chatId) {
-        telegramBot.sendMessage(chatId, '['+list.name+'] '+email+' ya está suscrito');
+        telegramBot.sendMessage(chatId, '['+list.name+'] '+redact(email)+' ya está suscrito');
     }
 }
 
@@ -53,7 +59,7 @@ async function sendConfirmAddressChange(locale, list, email, cid, subscription) 
     await _sendMail(list, email, 'confirm_address_change', locale, tMark('listPleaseConfirmEmailChangeIn'), relativeUrls, subscription);
 
     if (chatId) {
-        telegramBot.sendMessage(chatId, '['+list.name+'] '+email+' cambia de email');
+        telegramBot.sendMessage(chatId, '['+list.name+'] '+redact(email)+' cambia de email');
     }
 }
 
@@ -63,7 +69,7 @@ async function sendConfirmSubscription(locale, list, email, cid, subscription) {
     };
     await _sendMail(list, email, 'confirm_subscription', locale, tMark('pleaseConfirmSubscription'), relativeUrls, subscription);
     if (chatId) {
-        telegramBot.sendMessage(chatId, '['+list.name+'] '+email+' va a suscribirse 👀');
+        telegramBot.sendMessage(chatId, '['+list.name+'] '+redact(email)+' va a suscribirse 👀');
     }
 }
 
@@ -74,7 +80,7 @@ async function sendConfirmUnsubscription(locale, list, email, cid, subscription)
     await _sendMail(list, email, 'confirm_unsubscription', locale, tMark('listPleaseConfirmUnsubscription'), relativeUrls, subscription);
 
     if (chatId) {
-        telegramBot.sendMessage(chatId, '['+list.name+'] '+email+' va a desuscribirse 👀');
+        telegramBot.sendMessage(chatId, '['+list.name+'] '+redact(email)+' va a desuscribirse 👀');
     }
 }
 
@@ -85,7 +91,7 @@ async function sendUnsubscriptionConfirmed(locale, list, email, subscription) {
     await _sendMail(list, email, 'unsubscription_confirmed', locale, tMark('listUnsubscriptionConfirmed'), relativeUrls, subscription);
 
     if (chatId) {
-        telegramBot.sendMessage(chatId, '['+list.name+'] '+email+' se ha desuscrito 😢');
+        telegramBot.sendMessage(chatId, '['+list.name+'] '+redact(email)+' se ha desuscrito 😢');
     }
 }
 
